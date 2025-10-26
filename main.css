@@ -1,0 +1,137 @@
+
+
+.head_bar {
+    background-color: coral;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.head_bar ul{
+        overflow: auto;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        width: 100%;
+}
+
+.head_bar ul a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.head_bar ul a:hover {
+    text-decoration: underline;
+}
+
+.biography{
+    min-height: 200px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+ .biography img{
+    object-fit: cover;
+    width: 30%;
+    height: 100%;
+    padding: 10px;
+}
+
+.bio_text{
+    padding: 20px;
+    float: right;
+    width: 70%;
+}
+
+.bio_text h2{
+    border: solid;
+    padding: 10px;
+    text-align: center;
+    border-color: coral;
+    color: coral;
+}
+
+.bio_text p{
+    border: solid;
+    padding: 10px;
+    border-color: coral;
+}
+
+.projects{
+    background-color: coral;
+    width: 100%;
+    padding: 10px;
+}
+
+.projects h2{
+    color: coral;
+    text-align: center;
+    background-color: white;
+    border-radius: 140px;
+}
+.flex-direction {
+    width: 20%;
+    margin: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}
+.projects_list{
+    background-color: coral;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.projects_list h3{
+    background-color: white;
+    text-align:center ;
+    color: coral;
+    border-radius: 140px;
+}
+
+
+.projects_list img{
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 140px;
+    transition: ease-out 0.5s;
+}
+.projects_list img:hover{
+    background-color: rgb(216, 59, 1);
+    color: white;
+    transform: rotate(-100deg);
+}
+
+.education{
+    background-color: white;
+    padding: 20px;
+    border: 2px solid coral;
+    margin-top: 20px;
+}
+
+.education h3{
+    text-align: center;
+    background-color: coral;
+    color: white;
+}
+
+.certificates{
+    background-color: white;
+    padding: 20px;
+    border: 2px solid coral;
+    margin-top: 20px;
+}
+
+.certificates h3{
+    text-align: center;
+    background-color: coral;
+    color: white;
+}
