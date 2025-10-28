@@ -1,98 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Portfolio</title>
-        <link rel="stylesheet" href="../static/css/main.css">
-    </head>
-    <body>
-        <header>
-            <nav class="head_bar">
-                <div>
-                    <ul>
-                        <li>
-                            <a href>Full Name</a>
-                        </li>
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+    <header>
+        <nav class="head_bar">
+            <div>
+                <ul>
+                    <li><a href="#">Full Name</a></li>
+                    <li><a href="#">Biography</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Education</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-                        <li>
-                            <a href>Biohraphy</a>
-                        </li>
+    <div class="biography">
+        <img src="../static/img/profile_pic.svg" alt="Profile Picture">
 
-                        <li>
-                            <a href>Projects</a>
-                        </li>
+        <div class="bio_text">
+            <h2>Name</h2>
 
-                        <li>
-                            <a href>Education</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-        <div class="biography">
-            <img src="../static/img/profile_pic.svg">
-
-            <div class="bio_text">
-                <h2>Name</h2>
+            {% if data %}
+                <!-- Show generated CV summary -->
+                <p>{{ data }}</p>
+            {% else %}
+                <!-- Default placeholder text -->
                 <p>Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a piece of classical Latin literature
-                    from 45 BC, making it over 2000 years old. Richard
-                    McClintock, a Latin professor at Hampden-Sydney College in
-                    Virginia, looked up one of the more obscure Latin words,
-                    consectetur, from a Lorem Ipsum passage, and going through
-                    the cites of the word in classical literature, discovered
-                    the undoubtable source. Lorem Ipsum comes from sections
-                    1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
-                    Extremes of Good and Evil) by Cicero, written in 45 BC. This
-                    book is a treatise on the theory of ethics, very popular
-                    during the Renaissance. The first line of Lorem Ipsum,
-                    "Lorem ipsum dolor sit amet..", comes from a line in section
-                    1.10.32.</p>
+                   text. It has roots in a piece of classical Latin literature
+                   from 45 BC, making it over 2000 years old. Richard
+                   McClintock, a Latin professor at Hampden-Sydney College in
+                   Virginia, looked up one of the more obscure Latin words,
+                   consectetur, from a Lorem Ipsum passage, and going through
+                   the cites of the word in classical literature, discovered
+                   the undoubtable source. Lorem Ipsum comes from sections
+                   1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
+                   Extremes of Good and Evil) by Cicero, written in 45 BC. This
+                   book is a treatise on the theory of ethics, very popular
+                   during the Renaissance. The first line of Lorem Ipsum,
+                   "Lorem ipsum dolor sit amet..", comes from a line in section
+                   1.10.32.</p>
+            {% endif %}
+
+            <!-- Form to generate new text -->
+            <form action="/" method="POST">
+                <input type="hidden" name="first_name" value="Osama"/>
+                <input type="hidden" name="last_name" value="Yousef"/>
+                <input type="hidden" name="job_title" value="Backend"/>
+                <button type="submit">Generate Text</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="projects">
+        <h2>Projects</h2>
+        <div class="projects_list">
+            <div class="flex-direction"> 
+                <img src="../static/img/profile_pic.svg" alt="Project 1">
+                <h3>Project 1</h3>
+            </div>
+            <div class="flex-direction"> 
+                <img src="../static/img/profile_pic.svg" alt="Project 2">
+                <h3>Project 2</h3>
+            </div>
+            <div class="flex-direction"> 
+                <img src="../static/img/profile_pic.svg" alt="Project 3">
+                <h3>Project 3</h3>
+            </div>
+            <div class="flex-direction"> 
+                <img src="../static/img/profile_pic.svg" alt="Project 4">
+                <h3>Project 4</h3>
+            </div>
+            <div class="flex-direction"> 
+                <img src="../static/img/profile_pic.svg" alt="Project 5">
+                <h3>Project 5</h3>
+            </div>
+            <div class="flex-direction"> 
+                <img src="../static/img/profile_pic.svg" alt="Project 6">
+                <h3>Project 6</h3>
             </div>
         </div>
+    </div>
 
-        <div class="projects">
-            <h2>Projects</h2>
-            <div class="projects_list">
-                <div class="flex-direction"> 
-                    <img src="../static/img/profile_pic.svg">
-                    <h3>project 1</h3>
-                </div>
-                <div class="flex-direction"> 
-                    <img src="../static/img/profile_pic.svg">
-                    <h3>project 2</h3>
-                </div>
-                <div class="flex-direction"> 
-                    <img src="../static/img/profile_pic.svg">
-                    <h3>project 3</h3>
-                </div>
-                <div class="flex-direction"> 
-                    <img src="../static/img/profile_pic.svg">
-                    <h3>project 4</h3>
-                </div>
-                <div class="flex-direction"> 
-                    <img src="../static/img/profile_pic.svg">
-                    <h3>project 5</h3>
-                </div>
-                <div class="flex-direction"> 
-                    <img src="../static/img/profile_pic.svg">
-                    <h3>project 6</h3>
-                </div>
-            </div>
-        </div>
+    <div class="education">
+        <h3>Education</h3>
+        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, be sure there isn't anything embarrassing hidden in the middle of the text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+    </div>
 
-        <div class="education">
-            <h3>Education</h3>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-        </div>
+    <div class="certificates">
+        <h3>Certificates</h3>
+        <p>1. Example Certificate</p>
+    </div>
 
-        <div class="certificates">
-            <h3>Certificates</h3>
-            
-            1.fe
-        </div>
-
-    </body>
-</html>
 </body>
+</html>

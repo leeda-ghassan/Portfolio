@@ -48,12 +48,19 @@
     width: 70%;
 }
 
-.bio_text h2{
+.bio_text h2, button{
     border: solid;
     padding: 10px;
     text-align: center;
     border-color: coral;
     color: coral;
+}
+
+
+.bio_text button:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background: coral; 
 }
 
 .bio_text p{
