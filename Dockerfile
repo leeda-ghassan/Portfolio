@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5000
 
 # Define the command to run your Flask application
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+CMD ["gunicorn", "app:app", "-b", "0.0.0.0:5000", "-w", "4"]
