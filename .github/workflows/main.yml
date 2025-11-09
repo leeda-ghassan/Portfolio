@@ -39,10 +39,7 @@ jobs:
 
     - name: Start Docker Compose services
       run: |
-           docker compose down task3 || ture
-
-           docker image prune -a -f 
-           docker container prune -f
-           docker system prune -a -f
-
-           docker compose up -d task3 || ture
+          cd cybersecurity/task3
+          docker compose down || true
+          docker system prune -a -f
+          docker compose up -d --build
