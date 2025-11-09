@@ -38,7 +38,16 @@ jobs:
       uses: docker/setup-buildx-action@v3
 
     - name: Start Docker Compose services
-      working-directory: ./task3
-      run: |
-       docker compose down
-       docker compose up -d
+      with: 
+          host: 10.20.40.14
+          username: cybersecurity
+          script: |
+           cd cybersecurity/task3/docker-copmose.yml
+
+           docker compose down task3 || ture
+
+           docker image prune -a -f 
+           docker container prune -f
+           docker system prune -a -f
+
+           docker compose up -d task3 || ture
