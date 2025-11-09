@@ -39,5 +39,6 @@ jobs:
 
     - name: Build and push Docker images
       run: |
+        cd ./task3
         docker compose down
         docker compose up -d
