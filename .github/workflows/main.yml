@@ -38,6 +38,7 @@ jobs:
       uses: docker/setup-buildx-action@v3
 
     - name: Start Docker Compose services
+      uses: appleboy/ssh-action@v1.0.3
       with: 
         host: 10.20.40.14
         username: cybersecurity
