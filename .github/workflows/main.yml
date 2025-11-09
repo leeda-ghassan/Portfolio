@@ -21,13 +21,13 @@ jobs:
       run: docker compose build
 
     - name: Build Docker images
-      run: docker compose -f path/to/docker-compose.yml build
+      run: docker compose -f ./task3/docker-compose.yml build
 
     - name: Run tests
-      run: docker compose -f path/to/docker-compose.yml run --rm web pytest tests/
+      run: docker compose -f ./task3/docker-compose.yml run --rm web pytest task3/
 
     - name: Clean up
-      run: docker compose -f path/to/docker-compose.yml down
+      run: docker compose -f ./task3/docker-compose.yml down
 
 
     - name: Bring down services
