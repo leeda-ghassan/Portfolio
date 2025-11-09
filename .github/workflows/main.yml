@@ -21,7 +21,7 @@ jobs:
       run: docker compose build
 
     - name: Build Docker images
-      run: docker compose -f ./task3/docker-compose.yml build
+      run: docker compose -f ./task3/docker-compose.yml up
 
     - name: Run tests
       run: docker compose -f ./task3/docker-compose.yml run --rm web pytest task3/
