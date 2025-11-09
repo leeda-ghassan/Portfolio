@@ -39,9 +39,9 @@ jobs:
 
     - name: Start Docker Compose services
       with: 
-          host: 10.20.40.14
-          username: cybersecurity
-          script: |
+        host: 10.20.40.14
+        username: cybersecurity
+        script: |
            cd cybersecurity/task3/docker-copmose.yml
 
            docker compose down task3 || ture
