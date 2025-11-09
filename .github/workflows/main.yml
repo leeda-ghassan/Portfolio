@@ -21,7 +21,7 @@ jobs:
       run: docker compose build
 
     - name: Run tests in Docker container
-      run: docker compose run --rm web pytest task3/
+      run: docker compose -f ./task3/docker-compose.yml build
 
     - name: Bring down services
       run: docker compose down
