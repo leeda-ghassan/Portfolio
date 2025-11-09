@@ -37,8 +37,8 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Build and push Docker images
+    - name: Start Docker Compose services
+      working-directory: task3
       run: |
-        cd ./task3
-        docker compose down
-        docker compose up -d
+       docker compose down
+       docker compose up -d
