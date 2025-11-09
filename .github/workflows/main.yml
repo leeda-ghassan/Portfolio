@@ -17,8 +17,13 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Build Docker images with Compose
-      run: docker compose build
+    - name: Build Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: Dockerfile
+        push: false
+        tags: ghcr.io/task3
 
     - name: Build and start Docker containers
       run: docker compose -f ./task3/docker-compose.yml up -d --build
