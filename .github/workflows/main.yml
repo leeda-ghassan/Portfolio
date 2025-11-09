@@ -39,7 +39,6 @@ jobs:
 
     - name: Start Docker Compose services
       run: |
-           cd ~/task3
            docker compose down task3 || ture
 
            docker image prune -a -f 
