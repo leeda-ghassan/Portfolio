@@ -37,7 +37,7 @@ jobs:
       - name: Set up SSH access
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.MALAK_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 10.20.40.14 >> ~/.ssh/known_hosts
 
