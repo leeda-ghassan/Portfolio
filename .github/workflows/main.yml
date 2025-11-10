@@ -43,7 +43,7 @@ jobs:
 
       - name: Deploy to Remote Device
         run: |
-          ssh -i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=yes pi@10.20.40.14 << 'EOF'
+          ssh -i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=yes cybersecurity@10.20.40.14 << 'EOF'
             set -e
             cd /path/to/your/app   # 👈 Update to the folder where docker-compose.yml is
             git pull origin main
