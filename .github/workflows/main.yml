@@ -36,10 +36,10 @@ jobs:
 
       - name: Set up SSH access
         run: |
-          mkdir -p ./.ssh
-          echo "${{ secrets.MALAK_KEY }}" > ./.ssh/id_rsa
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H 10.20.40.14 >> ./.ssh/known_hosts
+          mkdir -p $HOME/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > $HOME/.ssh/id_ed25519
+          chmod 600 $HOME/.ssh/id_ed25519
+          ssh-keyscan -H 10.20.40.14 >> $HOME/.ssh/known_hosts
 
       - name: Deploy to Remote Device (10.20.40.14)
         run: |
