@@ -26,28 +26,18 @@ jobs:
           tags: ghcr.io/task3
 
   deploy:
-    runs-on: self-hosted   # 👈 Use self-hosted runner
+    runs-on: self-hosted  
     needs: build
     if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up SSH access
+        uses: actions/checkout@v4
+        
+      - name: Deploy
         run: |
-          mkdir -p $HOME/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > $HOME/.ssh/id_ed25519
-          chmod 600 $HOME/.ssh/id_ed25519
-          ssh-keyscan -H 10.20.40.14 >> $HOME/.ssh/known_hosts
+          cd ./task3
+          git pull origin main
+          docker compose down || true
+          docker compose up -d --build
 
-      - name: Deploy to Remote Device
-        run: |
-          ssh -i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=yes cybersecurity@10.20.40.14 << 'EOF'
-            set -e
-            cd /path/to/your/app   # 👈 Update to the folder where docker-compose.yml is
-            git pull origin main
-            docker compose down || true
-            docker system prune -a -f
-            docker compose up -d --build
-          EOF
