@@ -33,14 +33,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
-      - name: Build project
-        run: |
-          npm install
-          npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - run: |
+          cd cybersecurity/task3
+          docker compose down || true
+          docker compose up -d --build
 
-      - name: Publish
-        uses: actions/deploy-pages@v4
+     
