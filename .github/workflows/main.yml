@@ -34,12 +34,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build and deploy with Docker Compose
+      - name: Build project
         run: |
-         docker compose down || true
-         docker compose pull || true
-         docker compose build --no-cache
-         docker compose up -d
+          npm install
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+
+      - name: Publish
+        uses: actions/deploy-pages@v4
