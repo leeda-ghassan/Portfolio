@@ -26,7 +26,7 @@ jobs:
           tags: ghcr.io/task3
 
   deploy:
-    runs-on: self-hosted  
+    runs-on: self-hosted
     needs: build
     if: github.ref == 'refs/heads/main'
 
@@ -37,16 +37,18 @@ jobs:
       - name: Set up SSH access
         run: |
           mkdir -p $HOME/.ssh
+          chmod 700 $HOME/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > $HOME/.ssh/id_ed25519
           chmod 600 $HOME/.ssh/id_ed25519
           ssh-keyscan -H 10.20.40.14 >> $HOME/.ssh/known_hosts
-      - name: Deploy to Remote Device (10.20.40.14)
+
+      - name: Deploy to Remote Device
         run: |
-          ssh -o StrictHostKeyChecking=yes cybersecurity@10.20.40.14 << 'EOF'            
+          ssh -i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no cybersecurity@10.20.40.14 << 'EOF'
             set -e
-            cd ./task3
+            cd /home/cybersecurity/task3
             git pull origin main
-            docker compose down || true
-            docker system prune -a -f
-            docker compose up -d --build
+            sudo docker compose down || true
+            sudo docker system prune -a -f
+            sudo docker compose up -d --build
           EOF
